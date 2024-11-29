@@ -10,6 +10,7 @@ import SwiftUI
 import SwiftData
 import AppIntents
 
+// MARK: - Timeline Provider
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date())
@@ -31,27 +32,31 @@ struct Provider: TimelineProvider {
     }
 }
 
+// MARK: - Simple Entry
 struct SimpleEntry: TimelineEntry {
     let date: Date
 }
 
+// MARK: - Widget View
 struct StickItEntryView: View {
     var entry: Provider.Entry
     @Query(todoDescriptor, animation: .snappy) private var activeList: [Todo]
+    
     var body: some View {
         VStack {
             ForEach(activeList) { todo in
                 HStack(spacing: 10) {
                     Button(intent: ToggleButton(id: todo.taskID)) {
-                    Image(systemName: "circle")
+                        Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
+                            .font(.callout)
+                            .tint(todo.priority.color.gradient)
+                            .buttonBorderShape(.circle)
                     }
-                    .font(.callout)
-                    .tint(todo.priority.color.gradient)
-                    .buttonBorderShape(.circle)
 
                     Text(todo.task)
                         .font(.callout)
                         .lineLimit(1)
+                        .strikethrough(todo.isCompleted)
 
                     Spacer(minLength: 0)
                 }
@@ -61,7 +66,7 @@ struct StickItEntryView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .overlay {
             if activeList.isEmpty {
-                Text("No Thanks")
+                Text("No Tasks")
                     .font(.callout)
                     .transition(.push(from: .bottom))
             }
@@ -76,9 +81,9 @@ struct StickItEntryView: View {
         descriptor.fetchLimit = 3
         return descriptor
     }
-    
 }
 
+// MARK: - Widget Configuration
 struct StickIt: Widget {
     let kind: String = "Todo List"
 
@@ -87,33 +92,37 @@ struct StickIt: Widget {
             StickItEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
                 .modelContainer(for: Todo.self)
-    }
+        }
         .configurationDisplayName("Tasks")
         .description("This is a Todo List")
     }
 }
 
-struct ToggleButton: AppIntent {
-    static var title: LocalizedStringResource = .init(stringLiteral: "Toggle's Todo State")
-
+// MARK: - App Intent for Interactivity
+fileprivate struct ToggleButton: AppIntent {
+    static var title: LocalizedStringResource = .init(stringLiteral: "Toggle Todo State")
+    
     @Parameter(title: "Todo ID")
     var id: String
-
-    init() {
-    }
-
-    init(id: String) {
-        self.id = id
-    }
-
+    
+    init() {}
+    init(id: String) { self.id = id }
+    
     func perform() async throws -> some IntentResult {
-        let context = try ModelContext.init(for: Todo.self)
+        // Access the ModelContext
+        let context = ModelContext(try ModelContainer(for: Todo.self))
+
+        // Fetch the Todo item by ID
         let descriptor = FetchDescriptor(predicate: #Predicate<Todo> { $0.taskID == id })
-        if let todo = try context.fetch(descriptor).first {
-            todo.isCompleted = true
-            todo.lastUpdated = .now
-            try context.save()
+        if let todo = try await context.fetch(descriptor).first {
+            // Toggle the completion state
+            todo.isCompleted.toggle()
+            todo.lastUpdated = Date()
+
+            // Save the updated context
+            try await context.save()
         }
+
         return .result()
     }
 }
