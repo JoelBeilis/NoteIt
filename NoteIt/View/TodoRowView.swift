@@ -16,12 +16,15 @@ struct TodoRowView: View {
     var body: some View {
         HStack(spacing: 8) {
             if !isActive && !todo.task.isEmpty {
-                Button(action: {}, label: {
+                Button(action: {
+                    todo.isCompleted.toggle()
+                    todo.lastUpdated = .now
+                }, label: {
                     Image(systemName: todo.isCompleted ? "checkmark.circle.fill" : "circle")
                         .font(.title2)
                         .padding(3)
                         .contentShape(.rect)
-                        .foregroundStyle(todo.isCompleted ? .gray : .primary)
+                        .foregroundStyle(todo.isCompleted ? .gray : .accentColor)
                         .contentTransition(.symbolEffect(.replace))
                 })
             }
