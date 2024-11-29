@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5576CA5B2CF9889B003975E6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576CA5A2CF9889B003975E6 /* WidgetKit.framework */; };
+		5576CA5D2CF9889B003975E6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576CA5C2CF9889B003975E6 /* SwiftUI.framework */; };
+		5576CA6E2CF9889E003975E6 /* StickItExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5576CA582CF9889B003975E6 /* StickItExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5576CA282CF956E4003975E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,17 +27,62 @@
 			remoteGlobalIDString = 5576CA152CF956E2003975E6;
 			remoteInfo = NoteIt;
 		};
+		5576CA6C2CF9889E003975E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5576CA0E2CF956E2003975E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5576CA572CF9889B003975E6;
+			remoteInfo = StickItExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5576CA732CF9889E003975E6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5576CA6E2CF9889E003975E6 /* StickItExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5576CA162CF956E2003975E6 /* NoteIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5576CA272CF956E4003975E6 /* NoteItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5576CA312CF956E4003975E6 /* NoteItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5576CA582CF9889B003975E6 /* StickItExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = StickItExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5576CA5A2CF9889B003975E6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		5576CA5C2CF9889B003975E6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		5576CA762CF98EAD003975E6 /* StickItExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StickItExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5576CA6F2CF9889E003975E6 /* Exceptions for "StickIt" folder in "StickItExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5576CA572CF9889B003975E6 /* StickItExtension */;
+		};
+		5576CA752CF988C2003975E6 /* Exceptions for "NoteIt" folder in "StickItExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Model/Todo.swift,
+			);
+			target = 5576CA572CF9889B003975E6 /* StickItExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5576CA182CF956E2003975E6 /* NoteIt */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5576CA752CF988C2003975E6 /* Exceptions for "NoteIt" folder in "StickItExtension" target */,
+			);
 			path = NoteIt;
 			sourceTree = "<group>";
 		};
@@ -43,6 +94,14 @@
 		5576CA342CF956E4003975E6 /* NoteItUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NoteItUITests;
+			sourceTree = "<group>";
+		};
+		5576CA5E2CF9889B003975E6 /* StickIt */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5576CA6F2CF9889E003975E6 /* Exceptions for "StickIt" folder in "StickItExtension" target */,
+			);
+			path = StickIt;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -69,15 +128,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5576CA552CF9889B003975E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5576CA5D2CF9889B003975E6 /* SwiftUI.framework in Frameworks */,
+				5576CA5B2CF9889B003975E6 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		5576CA0D2CF956E2003975E6 = {
 			isa = PBXGroup;
 			children = (
+				5576CA762CF98EAD003975E6 /* StickItExtension.entitlements */,
 				5576CA182CF956E2003975E6 /* NoteIt */,
 				5576CA2A2CF956E4003975E6 /* NoteItTests */,
 				5576CA342CF956E4003975E6 /* NoteItUITests */,
+				5576CA5E2CF9889B003975E6 /* StickIt */,
+				5576CA592CF9889B003975E6 /* Frameworks */,
 				5576CA172CF956E2003975E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,8 +159,18 @@
 				5576CA162CF956E2003975E6 /* NoteIt.app */,
 				5576CA272CF956E4003975E6 /* NoteItTests.xctest */,
 				5576CA312CF956E4003975E6 /* NoteItUITests.xctest */,
+				5576CA582CF9889B003975E6 /* StickItExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5576CA592CF9889B003975E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5576CA5A2CF9889B003975E6 /* WidgetKit.framework */,
+				5576CA5C2CF9889B003975E6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +183,12 @@
 				5576CA122CF956E2003975E6 /* Sources */,
 				5576CA132CF956E2003975E6 /* Frameworks */,
 				5576CA142CF956E2003975E6 /* Resources */,
+				5576CA732CF9889E003975E6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5576CA6D2CF9889E003975E6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				5576CA182CF956E2003975E6 /* NoteIt */,
@@ -163,6 +246,28 @@
 			productReference = 5576CA312CF956E4003975E6 /* NoteItUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5576CA572CF9889B003975E6 /* StickItExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5576CA702CF9889E003975E6 /* Build configuration list for PBXNativeTarget "StickItExtension" */;
+			buildPhases = (
+				5576CA542CF9889B003975E6 /* Sources */,
+				5576CA552CF9889B003975E6 /* Frameworks */,
+				5576CA562CF9889B003975E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				5576CA5E2CF9889B003975E6 /* StickIt */,
+			);
+			name = StickItExtension;
+			packageProductDependencies = (
+			);
+			productName = StickItExtension;
+			productReference = 5576CA582CF9889B003975E6 /* StickItExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -184,6 +289,9 @@
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 5576CA152CF956E2003975E6;
 					};
+					5576CA572CF9889B003975E6 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 				};
 			};
 			buildConfigurationList = 5576CA112CF956E2003975E6 /* Build configuration list for PBXProject "NoteIt" */;
@@ -203,6 +311,7 @@
 				5576CA152CF956E2003975E6 /* NoteIt */,
 				5576CA262CF956E4003975E6 /* NoteItTests */,
 				5576CA302CF956E4003975E6 /* NoteItUITests */,
+				5576CA572CF9889B003975E6 /* StickItExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -223,6 +332,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5576CA2F2CF956E4003975E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5576CA562CF9889B003975E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,6 +369,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5576CA542CF9889B003975E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = 5576CA152CF956E2003975E6 /* NoteIt */;
 			targetProxy = 5576CA322CF956E4003975E6 /* PBXContainerItemProxy */;
+		};
+		5576CA6D2CF9889E003975E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5576CA572CF9889B003975E6 /* StickItExtension */;
+			targetProxy = 5576CA6C2CF9889E003975E6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -396,6 +524,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -404,12 +533,12 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Woosh.NoteIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -435,6 +564,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -443,12 +573,12 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Woosh.NoteIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -551,6 +681,67 @@
 			};
 			name = Release;
 		};
+		5576CA712CF9889E003975E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StickItExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8N8D78C46;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickIt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StickIt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Woosh.NoteIt.StickIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5576CA722CF9889E003975E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = StickItExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L8N8D78C46;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = StickIt/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = StickIt;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Woosh.NoteIt.StickIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -586,6 +777,15 @@
 			buildConfigurations = (
 				5576CA422CF956E4003975E6 /* Debug */,
 				5576CA432CF956E4003975E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5576CA702CF9889E003975E6 /* Build configuration list for PBXNativeTarget "StickItExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5576CA712CF9889E003975E6 /* Debug */,
+				5576CA722CF9889E003975E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
